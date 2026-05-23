@@ -1,13 +1,12 @@
-const BroadlinkRMPlatform = require('./platform');
-const fakegatoHistory = require( 'fakegato-history');
+const BroadlinkFireplacePlatform = require('./platform');
+
+const PLUGIN_NAME = 'homebridge-broadlink';
+const PLATFORM_NAME = 'BroadlinkPlatform';
 
 module.exports = (homebridge) => {
-  HistoryService = fakegatoHistory( homebridge );
-  
   global.Service = homebridge.hap.Service;
   global.Characteristic = homebridge.hap.Characteristic;
 
-  BroadlinkRMPlatform.setHomebridge(homebridge);
-
-  homebridge.registerPlatform("homebridge-broadlink-rm", "BroadlinkRM", BroadlinkRMPlatform);
-}
+  BroadlinkFireplacePlatform.setHomebridge(homebridge);
+  homebridge.registerPlatform(PLUGIN_NAME, PLATFORM_NAME, BroadlinkFireplacePlatform);
+};

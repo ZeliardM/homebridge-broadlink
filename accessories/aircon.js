@@ -7,9 +7,9 @@ const delayForDuration = require('../helpers/delayForDuration');
 const ServiceManagerTypes = require('../helpers/serviceManagerTypes');
 const catchDelayCancelError = require('../helpers/catchDelayCancelError');
 const { getDevice } = require('../helpers/getDevice');
-const BroadlinkRMAccessory = require('./accessory');
+const BroadlinkPlatformAccessory = require('./accessory');
 
-class AirConAccessory extends BroadlinkRMAccessory {
+class AirConAccessory extends BroadlinkPlatformAccessory {
 
   constructor (log, config = {}, serviceManagerType) {
     super(log, config, serviceManagerType);

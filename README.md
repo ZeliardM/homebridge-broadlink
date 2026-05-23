@@ -1,38 +1,43 @@
-# Homebridge Broadlink RM Pro
+# Homebridge Broadlink Fireplace
 
-## Introduction
-Welcome to the Broadlink RM Mini and Broadlink RM Pro plugin for [Homebridge](https://github.com/nfarina/homebridge).
+Local-only Homebridge plugin for one fireplace controlled by:
 
-This plugin allows you to control your RM Mini and RM Pro with HomeKit using the Home app and Siri.
+- one Broadlink IR blaster, addressed by IP
+- two learned IR commands: Power and Heat
+- one IKEA DIRIGERA outlet used as the real power control
 
-## Like this plugin?
+The plugin exposes four HomeKit controls:
 
-If you like this plugin and want to show your support then please star the Github repo, or better yet; buy me a drink using [Paypal](https://paypal.me/kiwicamRM).
+- Fireplace Power
+- Fireplace Heat Low
+- Fireplace Heat High
+- Fireplace Heat Off
 
-Thank you!
+The raw IR commands, outlet state, started state, awake window, and heat state are handled inside the plugin.
 
-## Installation
+## Setup
 
-This plugin can be added via the Web interface, or if you perfer the terminal:
-   `npm install -g homebridge-broadlink-rm-pro`
-For more information, refer to the [documentation](https://broadlink.kiwicam.nz/#installation).
+Use the Homebridge custom UI.
 
-## Documentation
+1. Enter the fireplace name and Broadlink IP address.
+2. Click `Connect Broadlink`.
+3. Learn the `Power` IR command.
+4. Learn the `Heat` IR command.
+5. Enter the DIRIGERA gateway IP.
+6. Pair DIRIGERA.
+7. Import the outlet that powers the fireplace.
+8. Save the Homebridge config.
 
-**Documentation can be found [here](https://broadlink.kiwicam.nz).** If you have any trouble after reading through the information please raise an issue and we'll help out as best we can.
+## Behavior
 
-If the plugin is unable to discover your device, it's likely you've locked the device with the cloud so it no longer accepts local connections. In this case, follow these steps:
-1. Open the [Broadlink app](https://apps.apple.com/us/app/broadlink/id1450257910)
-2. From the Home screen, tap on your Broadlink device
-3. Tap the ... in the top right
-4. Scroll down and toggle "Lock device" to Off
-5. Tap OK when prompted "Confirm to unlock the device"
+Turning Fireplace Power on turns on the DIRIGERA outlet, waits 4 seconds, sends the IR Power command, sets heat to Off, and tracks the fireplace as awake for 4 seconds.
 
-<img src="https://i.imgur.com/DMTUbDo.png" width="40%" height="40%">
+Turning Fireplace Power off turns off the DIRIGERA outlet, resets all internal state, and shows all heat switches as off. It does not send IR Power.
 
-This plugin should now be able to discover your device.
+Heat requests always ensure the outlet is on and the fireplace has been started. Heat is tracked as a three-state cycle:
 
-## Thanks
-Original: Thanks to @tattn (https://github.com/tattn/homebridge-rm-mini3), @PJCzx (https://github.com/PJCzx/homebridge-thermostat), @momodalo (https://github.com/momodalo/broadlinkjs), and @lprhodes (https://github.com/lprhodes/homebridge-broadlink-rm) whose time and effort got this started.
+```text
+Off -> Low -> High -> Off
+```
 
-In this fork: Thanks to @kiwi-cam (https://github.com/kiwi-cam), @Cloudore (https://github.com/Cloudore) and @Faisalthe01 (https://github.com/Faisalthe01) for your work!
+If the fireplace is outside the awake window, the plugin sends one Heat command as a wake-up press, waits 750 ms, then sends the real Heat presses needed to reach the requested mode.

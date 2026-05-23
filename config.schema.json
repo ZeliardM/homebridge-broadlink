@@ -1,0 +1,106 @@
+{
+  "pluginAlias": "BroadlinkPlatform",
+  "pluginType": "platform",
+  "singular": true,
+  "customUi": true,
+  "customUiPath": "./homebridge-ui",
+  "headerDisplay": "Configure the local fireplace Broadlink blaster, learned IR commands, and internal DIRIGERA outlet.",
+  "footerDisplay": "",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "title": "Platform Name",
+        "default": "BroadlinkPlatform"
+      },
+      "device": {
+        "type": "object",
+        "title": "Fireplace",
+        "required": [
+          "name",
+          "ip"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "default": "Fireplace"
+          },
+          "ip": {
+            "type": "string",
+            "title": "Broadlink IP Address"
+          },
+          "mac": {
+            "type": "string",
+            "title": "Broadlink MAC Address",
+            "readOnly": true
+          },
+          "deviceType": {
+            "type": "integer",
+            "title": "Broadlink Device Type",
+            "readOnly": true
+          },
+          "model": {
+            "type": "string",
+            "title": "Broadlink Model",
+            "readOnly": true
+          },
+          "powerCode": {
+            "type": "string",
+            "title": "Power IR Code",
+            "readOnly": true
+          },
+          "heatCode": {
+            "type": "string",
+            "title": "Heat IR Code",
+            "readOnly": true
+          },
+          "dirigeraGatewayIP": {
+            "type": "string",
+            "title": "DIRIGERA Gateway IP"
+          },
+          "dirigeraAccessToken": {
+            "type": "string",
+            "title": "DIRIGERA Access Token",
+            "readOnly": true
+          },
+          "dirigeraOutletId": {
+            "type": "string",
+            "title": "DIRIGERA Outlet ID",
+            "readOnly": true
+          },
+          "dirigeraOutletName": {
+            "type": "string",
+            "title": "DIRIGERA Outlet Name",
+            "readOnly": true
+          },
+          "startupDelayMs": {
+            "type": "integer",
+            "title": "Outlet Startup Delay (ms)",
+            "default": 4000,
+            "minimum": 0
+          },
+          "awakeDurationMs": {
+            "type": "integer",
+            "title": "Awake Window (ms)",
+            "default": 4000,
+            "minimum": 500
+          },
+          "wakeDelayMs": {
+            "type": "integer",
+            "title": "Wake Delay (ms)",
+            "default": 750,
+            "minimum": 0
+          },
+          "heatPressDelayMs": {
+            "type": "integer",
+            "title": "Heat Press Delay (ms)",
+            "default": 750,
+            "minimum": 0
+          }
+        }
+      }
+    }
+  }
+}

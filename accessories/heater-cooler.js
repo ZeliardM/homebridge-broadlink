@@ -7,7 +7,7 @@ const delayForDuration = require('../helpers/delayForDuration');
 const ServiceManagerTypes = require('../helpers/serviceManagerTypes');
 const catchDelayCancelError = require('../helpers/catchDelayCancelError');
 const { getDevice, discoverDevices } = require('../helpers/getDevice');
-const BroadlinkRMAccessory = require('./accessory');
+const BroadlinkPlatformAccessory = require('./accessory');
 
 // Initializing predefined constants based on homekit API
 // All temperature values passed and received from homekit API are defined in degree Celsius
@@ -49,7 +49,7 @@ const CharacteristicName = {
  *  7. Rotation Speed
  *  8. Swing Mode (Oscillation)
  */
-class HeaterCoolerAccessory extends BroadlinkRMAccessory {
+class HeaterCoolerAccessory extends BroadlinkPlatformAccessory {
   /**
    * 
    * @param {func} log - function used for logging

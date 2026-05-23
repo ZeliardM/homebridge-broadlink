@@ -7,7 +7,7 @@ const delayForDuration = require('../helpers/delayForDuration');
 const ServiceManagerTypes = require('../helpers/serviceManagerTypes');
 const catchDelayCancelError = require('../helpers/catchDelayCancelError');
 const { getDevice } = require('../helpers/getDevice');
-const BroadlinkRMAccessory = require('./accessory');
+const BroadlinkPlatformAccessory = require('./accessory');
 
 const FanAccessory = require('./fan');
 

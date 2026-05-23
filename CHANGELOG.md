@@ -195,7 +195,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
  -  Added Low Battery Alerts to Humidity and Temperature sensors (using battery:XX in readings from files)
  -  Extended Temperature and Humidity readings from files to support temperature:XX, humidity:XX, and battery:XX values on each line
  -  Added MQTT support to AC and Temperature sensor using temperature,humidity, and battery identifiers
- -  Added HeaterCooler accessory option. Refer to [this document](https://github.com/kiwi-cam/homebridge-broadlink-rm/blob/kiwi-cam-beta-1/docs/heater-cooler.md) to read @newt10's work here.
+ -  Added HeaterCooler accessory option. Refer to [this document](https://github.com/kiwi-cam/homebridge-broadlink/blob/kiwi-cam-beta-1/docs/heater-cooler.md) to read @newt10's work here.
 ### Changed
  -  Updated all dependencies to remove some security vulnerabilities 
  -  Removed file and w1 Temperature readings being forced to 10 minutes. Now 1 minute minimum and adjustable
@@ -306,6 +306,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [4.2.0] - 2020-05-25
 ### Added
--  Inital version - forked from AlexanderBabel/homebridge-broadlink-rm-tv
+-  Inital version - forked from AlexanderBabel/homebridge-broadlink-tv
 ### Fixed
 -  Added device support from def-broadlinkjs-rm

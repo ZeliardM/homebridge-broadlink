@@ -1,9 +1,9 @@
 const delayForDuration = require('../helpers/delayForDuration');
-const BroadlinkRMAccessory = require('./accessory');
+const BroadlinkPlatformAccessory = require('./accessory');
 const ServiceManagerTypes = require('../helpers/serviceManagerTypes');
 const catchDelayCancelError = require('../helpers/catchDelayCancelError');
 
-class GarageDoorOpenerAccessory extends BroadlinkRMAccessory {
+class GarageDoorOpenerAccessory extends BroadlinkPlatformAccessory {
 
   correctReloadedState (state) {
     state.doorTargetState = state.doorCurrentState;

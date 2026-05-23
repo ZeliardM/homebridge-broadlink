@@ -3,9 +3,9 @@ const { assert } = require('chai');
 const delayForDuration = require('../helpers/delayForDuration');
 const ServiceManagerTypes = require('../helpers/serviceManagerTypes');
 const catchDelayCancelError = require('../helpers/catchDelayCancelError');
-const BroadlinkRMAccessory = require('./accessory');
+const BroadlinkPlatformAccessory = require('./accessory');
 
-class WindowCoveringAccessory extends BroadlinkRMAccessory {
+class WindowCoveringAccessory extends BroadlinkPlatformAccessory {
 
   setDefaults () {
     const { config, state } = this;

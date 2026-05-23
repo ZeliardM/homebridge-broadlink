@@ -11,7 +11,7 @@
   ],
   "platforms":[
     {
-      "platform":"BroadlinkRM",
+      "platform":"BroadlinkPlatform",
       "name":"Broadlink RM",
       "hideScanFrequencyButton": false,
       "hideLearnButton": false,

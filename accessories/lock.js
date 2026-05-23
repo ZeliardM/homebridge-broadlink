@@ -1,9 +1,9 @@
 const delayForDuration = require('../helpers/delayForDuration');
-const BroadlinkRMAccessory = require('./accessory');
+const BroadlinkPlatformAccessory = require('./accessory');
 const ServiceManagerTypes = require('../helpers/serviceManagerTypes');
 const catchDelayCancelError = require('../helpers/catchDelayCancelError')
 
-class LockAccessory extends BroadlinkRMAccessory {
+class LockAccessory extends BroadlinkPlatformAccessory {
 
   correctReloadedState (state) {
     state.lockTargetState = state.lockCurrentState;

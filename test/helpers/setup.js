@@ -1,6 +1,6 @@
 const hap = require('hap-nodejs');
 
-const BroadlinkRMPlatform = require('../../platform');
+const BroadlinkPlatformPlatform = require('../../platform');
 const FakeDevice = require('./fakeDevice')
 const { addDevice } = require('../../helpers/getDevice')
 
@@ -16,7 +16,7 @@ const log = (message, more) => {
 };
 
 const setup = (config) => {
-  const platform = new BroadlinkRMPlatform(log, config);
+  const platform = new BroadlinkPlatformPlatform(log, config);
 
   const device = new FakeDevice()
   addDevice(device)

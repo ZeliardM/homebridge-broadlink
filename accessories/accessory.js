@@ -6,7 +6,7 @@ const sendData = require('../helpers/sendData');
 const delayForDuration = require('../helpers/delayForDuration');
 const catchDelayCancelError = require('../helpers/catchDelayCancelError');
 
-class BroadlinkRMAccessory extends HomebridgeAccessory {
+class BroadlinkPlatformAccessory extends HomebridgeAccessory {
 
   constructor (log, config = {}, serviceManagerType) {
     if (!config.name) {config.name = "Unknown Accessory"}
@@ -124,4 +124,4 @@ class BroadlinkRMAccessory extends HomebridgeAccessory {
   }
 }
 
-module.exports = BroadlinkRMAccessory;
+module.exports = BroadlinkPlatformAccessory;

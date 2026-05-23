@@ -3,9 +3,9 @@ const learnRFData = require('../helpers/learnRFData');
 const ServiceManager = require('../helpers/serviceManager');
 const ServiceManagerTypes = require('../helpers/serviceManagerTypes');
 
-const BroadlinkRMAccessory = require('./accessory');
+const BroadlinkPlatformAccessory = require('./accessory');
 
-class LearnIRAccessory extends BroadlinkRMAccessory {
+class LearnIRAccessory extends BroadlinkPlatformAccessory {
 
   constructor(log, config = {}, serviceManagerType) {
     // Set a default name for the accessory
